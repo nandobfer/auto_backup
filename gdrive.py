@@ -2,7 +2,7 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 from datetime import datetime
 
-def upload(user):
+def upload(user, extension):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
     print(today)
@@ -24,9 +24,9 @@ def upload(user):
         folder = folder[0]
 
     file = drive.CreateFile({'parents': [{'id': folder['id']}],})
-    file.SetContentFile(f"{user}.tar.gz")
+    file.SetContentFile(f"{user}.{extension}")
     file.Upload()
-    print(f"uploaded {user}.tar.gz")
+    print(f"uploaded {user}.{extension}")
 
 gauth = GoogleAuth()   
 

@@ -11,7 +11,8 @@ def newBackup(user):
         proc = subprocess.Popen([f"mv /home/cpmove-{user}.tar.gz {user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
         print()
         (out, err) = proc.communicate()
-        upload(user)
+        print('uploading to drive')
+        upload(user, 'tar.gz')
         
     
 
