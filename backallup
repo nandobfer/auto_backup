@@ -3,5 +3,6 @@
 cd /var/cpanel/users
 
 for user in *; do
-        python3 /root/auto-backup/backup.py $user
+        cd /root/auto_backup
+        python3 backup.py $user
 done
