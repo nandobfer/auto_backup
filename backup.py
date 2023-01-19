@@ -7,6 +7,7 @@ def delete(user):
     print("file deleted")
 
 def newBackup(user):
+    print(f'compressing {user}')
     proc = subprocess.Popen([f"/scripts/pkgacct {user}"], stdout=subprocess.PIPE, shell=True)
     print()
     (out, err) = proc.communicate()
