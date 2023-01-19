@@ -7,10 +7,9 @@ def newBackup(database):
     print()
     (out, err) = proc.communicate()
     
-    if out:
-        print(f"successfully exported {database} ")
-        print('uploading to drive')
-        upload(database, 'sql')
+    print(f"exported {database} ")
+    print('uploading to drive')
+    upload(database, 'sql')
         
 conn = mysql.connector.connect (user='fernando', password='mfux6xpj',
                                host='agenciaboz.com.br',buffered=True)
@@ -18,6 +17,7 @@ cursor = conn.cursor()
 databases = ("show databases")
 cursor.execute(databases)
 for (databases) in cursor:
+    print(databases[0])
     newBackup(databases[0])
 
         
