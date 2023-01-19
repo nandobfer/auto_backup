@@ -9,7 +9,6 @@ def delete(user):
 def newBackup(user):
     print(f'compressing {user}')
     proc = subprocess.Popen([f"/scripts/pkgacct {user}"], stdout=subprocess.PIPE, shell=True)
-    print()
     (out, err) = proc.communicate()
     
     if out:
@@ -20,6 +19,7 @@ def newBackup(user):
         print('uploading to drive')
         upload(user, 'tar.gz')
         delete(user)
+        print()
         
     
 
