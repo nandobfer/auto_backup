@@ -4,8 +4,7 @@ from gdrive import upload
 def delete(user):
     proc = subprocess.Popen([f"rm -rf {user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    if out:
-        print("file deleted")
+    print("file deleted")
 
 def newBackup(user):
     proc = subprocess.Popen([f"/scripts/pkgacct {user}"], stdout=subprocess.PIPE, shell=True)
