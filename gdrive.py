@@ -5,7 +5,6 @@ from datetime import datetime
 def upload(user, extension):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
-    print(today)
 
     file_metadata = {
     'title': today,
