@@ -2,6 +2,11 @@ import subprocess, json, sys
 import mysql.connector
 from gdrive import upload
 
+def delete(database):
+    proc = subprocess.Popen([f"rm -rf {database}.sql"], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    print("file deleted")
+
 def newBackup(database):
     proc = subprocess.Popen([f"mysqldump -u fernando -pmfux6xpj {database} > {database}.sql"], stdout=subprocess.PIPE, shell=True)
     print()
@@ -10,6 +15,7 @@ def newBackup(database):
     print(f"exported {database} ")
     print('uploading to drive')
     upload(database, 'sql')
+    delete(database)
         
 conn = mysql.connector.connect (user='fernando', password='mfux6xpj',
                                host='agenciaboz.com.br',buffered=True)
