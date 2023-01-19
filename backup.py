@@ -19,6 +19,7 @@ def newBackup(user):
         (out, err) = proc.communicate()
         print('uploading to drive')
         upload(user, 'tar.gz')
+        delete(user)
         
     
 
