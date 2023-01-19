@@ -5,7 +5,11 @@ def newBackup(user):
     print()
     (out, err) = proc.communicate()
     
-    print(out)
+    if out:
+        print(f"successfully compressed {user} ")
+        proc = subprocess.Popen([f"mv /home/cpmove-{user}.tar.gz {user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
+        print()
+        (out, err) = proc.communicate()
     
 
 user = sys.argv[1]
