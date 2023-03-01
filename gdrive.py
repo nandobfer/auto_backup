@@ -2,6 +2,13 @@ from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from datetime import datetime
 
+def download():
+    today = str(datetime.now().date())
+    
+    file_list = drive.ListFile({'q': f"title = '{today}' and trashed=false"}).GetList()
+    for file1 in file_list:
+        print('title: %s, id: %s' % (file1['title'], file1['id']))
+
 def upload(user, extension):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
