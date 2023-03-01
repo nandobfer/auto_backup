@@ -13,6 +13,9 @@ def newBackup(user):
     
     if out:
         print(out)
+
+    else:
+        print(err)
         
     
 
