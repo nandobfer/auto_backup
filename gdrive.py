@@ -1,13 +1,30 @@
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from datetime import datetime
+import sys
 
-def download():
-    today = str(datetime.now().date())
+def download(user):
+    def getUserFile(backup_list):
+        for file in backup_list:
+            if file['title'].split('.tar')[0] == user:
+                return file
+
+    folder_id = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
+
+    str = "\'" + folder_id + "\'" + " in parents and trashed=false"
+    file_list = drive.ListFile({'q': str}).GetList()[0]
+
+
+    backup_str = "\'" + file_list['id'] + "\'" + " in parents and trashed=false"
+    backup_list = drive.ListFile({'q': backup_str}).GetList()
     
-    file_list = drive.ListFile({'q': f"title = '{today}' and trashed=false"}).GetList()
-    for file1 in file_list:
-        print('title: %s, id: %s' % (file1['title'], file1['id']))
+    file = getUserFile(backup_list)
+    print(f"downloading {file['title']}")
+    
+    file.GetContentFile(file['title'])
+
+
+    
 
 def upload(user, extension):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
@@ -65,3 +82,5 @@ gauth.SaveCredentialsFile("mycreds.txt")
 
 drive = GoogleDrive(gauth)
 
+if __name__ == '__main__':
+    globals()[sys.argv[1]](sys.argv[2])
