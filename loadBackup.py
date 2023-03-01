@@ -1,4 +1,4 @@
-import subprocess, json, sys
+import subprocess, os, sys
 from gdrive import download
 
 def delete(user):
@@ -8,15 +8,7 @@ def delete(user):
 
 def newBackup(user):
     print(f'restoring {user}')
-    proc = subprocess.Popen([f"/scripts/restorepkg --skipaccount ./{user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
-    
-    if out:
-        print(out)
-
-    else:
-        print(err)
-        
+    os.system(f"/scripts/restorepkg --skipaccount ./{user}.tar.gz")
     
 
 user = sys.argv[1]
