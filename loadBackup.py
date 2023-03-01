@@ -8,7 +8,7 @@ def delete(user):
 
 def newBackup(user):
     print(f'restoring {user}')
-    proc = subprocess.Popen([f"/scripts/restorepkg {user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
+    proc = subprocess.Popen([f"/scripts/restorepkg --skipaccount ./{user}.tar.gz"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     
     if out:
