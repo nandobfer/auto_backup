@@ -29,5 +29,6 @@ def newBackup(domain):
         
     
 
-domain = sys.argv[1]
-newBackup(domain)
+if __name__ == "__main__":
+    domain = sys.argv[1]
+    newBackup(domain)
