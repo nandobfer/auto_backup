@@ -1,8 +1,0 @@
-#!/usr/bin/sh
-
-cd /var/cpanel/users
-
-for user in *; do
-        cd /root/auto_backup
-        python3 backup.py $user
-done
