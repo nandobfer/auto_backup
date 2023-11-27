@@ -12,11 +12,15 @@ def newBackup(domain):
     (out, err) = proc.communicate()
     
     if out:
+        timestamp = out.decode('utf-8').split('backup_log.')[1]
+        path = f"/home/{domain}/backup/"
+        filename = f"backup-{domain}-{timestamp}.tar.gz"
+
+        print(f"backup file: {path}{filename}")
+
         print(f"compressed {domain} ")
         # proc = subprocess.Popen([f"mv /home/cpmove-{domain}.tar.gz {domain}.tar.gz"], stdout=subprocess.PIPE, shell=True)
         # (out, err) = proc.communicate()
-        print("out:")
-        print(out)
         # print('uploading to drive')
         # upload(domain, 'tar.gz')
         # delete(domain)
