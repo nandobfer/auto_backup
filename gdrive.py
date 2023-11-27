@@ -26,27 +26,25 @@ def download(user):
 
     
 
-def upload(filepath, filename):
+def upload(filepath: str, filename: str):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
 
-    file_metadata = {
-    'title': today,
-    'parents': [{'id': parent_folder}],
-    'mimeType': 'application/vnd.google-apps.folder'
-    }
 
     folder = drive.ListFile({'q': f"title = '{today}' and trashed=false"}).GetList()
     if not folder:
-
-        folder = drive.CreateFile(file_metadata)
+        folder = drive.CreateFile({
+            'title': today,
+            'parents': [{'id': parent_folder}],
+            'mimeType': 'application/vnd.google-apps.folder'
+            })
         folder.Upload()
         print(f"folder id: {folder['id']}")
         
     else:
         folder = folder[0]
 
-    file = drive.CreateFile({'parents': [{'id': folder['id']}], 'title': filename})
+    file = drive.CreateFile({'title': filename, 'parents': [{'id': folder['id']}]})
     file.SetContentFile(filepath)
     file.Upload()
     print(f"uploaded {filepath}")
