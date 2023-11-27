@@ -12,7 +12,7 @@ def newBackup(domain):
     (out, err) = proc.communicate()
     
     if out:
-        timestamp = out.decode('utf-8').split('backup_log.')[1]
+        timestamp = out.decode('utf-8').split('backup_log.')[1].replace("\n", "")
         path = f"/home/{domain}/backup/"
         filename = f"backup-{domain}-{timestamp}.tar.gz"
 
