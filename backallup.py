@@ -16,11 +16,11 @@ def main():
         print(f"Error parsing JSON: {e}")
         return
 
-    # for website in websites:
-    #     domain = website.get('domain')
-    #     if domain:
-    #         print(f"Backing up {domain}")
-    #         os.system(f"python3 /root/auto_backup/cyberpanel_backup.py {domain}")
+    for website in websites:
+        domain = website['domain']
+        if domain:
+            print(f"Backing up {domain}")
+            # os.system(f"python3 /root/auto_backup/cyberpanel_backup.py {domain}")
 
 if __name__ == "__main__":
     main()
