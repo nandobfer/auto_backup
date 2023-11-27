@@ -26,7 +26,7 @@ def download(user):
 
     
 
-def upload(user, extension):
+def upload(filepath):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
 
@@ -47,9 +47,9 @@ def upload(user, extension):
         folder = folder[0]
 
     file = drive.CreateFile({'parents': [{'id': folder['id']}],})
-    file.SetContentFile(f"{user}.{extension}")
+    file.SetContentFile(filepath)
     file.Upload()
-    print(f"uploaded {user}.{extension}")
+    print(f"uploaded {filepath}")
 
 gauth = GoogleAuth()   
 
