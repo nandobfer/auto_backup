@@ -23,7 +23,7 @@ def newBackup(domain):
         # proc = subprocess.Popen([f"mv /home/cpmove-{domain}.tar.gz {domain}.tar.gz"], stdout=subprocess.PIPE, shell=True)
         # (out, err) = proc.communicate()
         print('uploading to drive')
-        upload(filepath, domain)
+        upload(filepath, f"{domain}.tar.gz")
         delete(filepath)
         print()
         
