@@ -26,7 +26,7 @@ def download(user):
 
     
 
-def upload(filepath):
+def upload(filepath, filename):
     parent_folder = '12URAbEpT-96N1XOH9Vaco9cOJwu9aTyL'
     today = str(datetime.now().date())
 
@@ -46,7 +46,7 @@ def upload(filepath):
     else:
         folder = folder[0]
 
-    file = drive.CreateFile({'parents': [{'id': folder['id']}],})
+    file = drive.CreateFile({'parents': [{'id': folder['id']}], 'title': filename})
     file.SetContentFile(filepath)
     file.Upload()
     print(f"uploaded {filepath}")
