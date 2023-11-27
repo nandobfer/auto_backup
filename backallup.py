@@ -12,13 +12,12 @@ def main():
     try:
         websites = json.loads(output)
         websites = json.loads(websites)
-        print(websites[0])
         
-        # for website in websites:
-        #     print(website)
-            # domain = website['domain']
-            # if domain:
-            #     print(f"Backing up {domain}")
+        for website in websites:
+            print(website)
+            domain = website['domain']
+            if domain:
+                print(f"Backing up {domain}")
                 # os.system(f"python3 /root/auto_backup/cyberpanel_backup.py {domain}")
     except json.JSONDecodeError as e:
         print(f"Error parsing JSON: {e}")
