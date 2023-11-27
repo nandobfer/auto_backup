@@ -10,9 +10,9 @@ def main():
 
     # Try to parse the JSON output
     try:
-        # websites = json.loads(output)
-        # websites = dict(websites)
-        print(output)
+        websites = json.loads(output)
+        websites = json.loads(websites)
+        print(websites[0])
         
         # for website in websites:
         #     print(website)
