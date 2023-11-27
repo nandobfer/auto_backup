@@ -11,7 +11,7 @@ def main():
     # Try to parse the JSON output
     try:
         websites = json.loads(output)
-        print(websites)
+        print(websites[0])
         
         # for website in websites:
         #     print(website)
