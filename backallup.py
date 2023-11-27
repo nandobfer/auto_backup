@@ -11,9 +11,10 @@ def main():
     # Try to parse the JSON output
     try:
         websites = json.loads(output)
+        print(websites)
         
-        for website in websites:
-            print(website)
+        # for website in websites:
+        #     print(website)
             # domain = website['domain']
             # if domain:
             #     print(f"Backing up {domain}")
