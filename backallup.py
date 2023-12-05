@@ -17,7 +17,11 @@ def main():
             domain = website['domain']
             if domain:
                 print(f"Backing up {domain}")
-                cyberpanel_backup.newBackup(domain)
+                try:
+
+                    cyberpanel_backup.newBackup(domain)
+                except e:
+                    print(f"error uploading {domain}: {e}")
                 
     except json.JSONDecodeError as e:
         print(f"Error parsing JSON: {e}")
