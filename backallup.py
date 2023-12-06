@@ -20,7 +20,7 @@ def main():
                 try:
 
                     cyberpanel_backup.newBackup(domain)
-                except e:
+                except Exception as e:
                     print(f"error uploading {domain}: {e}")
                 
     except json.JSONDecodeError as e:
