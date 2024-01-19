@@ -4,7 +4,20 @@ from gdrive import upload
 def delete(filepath):
     proc = subprocess.Popen([f"rm -rf {filepath}"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
-    print("file deleted")
+    if err:
+        print('erro ao deletar')
+        print(err)
+    else:
+        print("tar.gz file deleted")
+
+
+    proc = subprocess.Popen([f"rm -rf {filepath.split('.tar')[0]}"], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    if err:
+        print(err)
+    else:
+        print('backup dir deleted')
+
 
 def newBackup(domain):
     print(f'compressing {domain}')
