@@ -1,0 +1,2 @@
+## python requirements:
+pydrive2

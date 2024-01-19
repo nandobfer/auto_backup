@@ -8,7 +8,7 @@ def delete(user):
 
 def load(user):
     print(f'restoring {user}')
-    os.system(f"/scripts/restorepkg --skipaccount ./{user}.tar.gz")
+    os.system(f"cyberpanel restoreBackup --fileName ./{user}.tar.gz")
         
     
 
