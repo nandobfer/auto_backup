@@ -10,7 +10,7 @@ def delete(database):
     print("file deleted")
 
 def newBackup(database):
-    proc = subprocess.Popen([f"mysqldump -u fernando -pmfux6xpj {database} > {database}.sql"], stdout=subprocess.PIPE, shell=True)
+    proc = subprocess.Popen([f"mysqldump -u boz -pEwhblt69!@# {database} > {database}.sql"], stdout=subprocess.PIPE, shell=True)
     print()
     (out, err) = proc.communicate()
     
@@ -19,7 +19,7 @@ def newBackup(database):
     upload(database, 'sql')
     delete(database)
         
-conn = mysql.connector.connect (user='fernando', password='mfux6xpj',
+conn = mysql.connector.connect (user='boz', password='Ewhblt69!@#',
                                host='agenciaboz.com.br',buffered=True)
 cursor = conn.cursor()
 databases = ("show databases")
