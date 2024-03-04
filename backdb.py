@@ -2,6 +2,8 @@ import subprocess, json, sys
 import mysql.connector
 from gdrive import upload
 
+# pip3 install mysql-connector-python
+
 def delete(database):
     proc = subprocess.Popen([f"rm -rf {database}.sql"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
