@@ -16,8 +16,9 @@ def newBackup(database):
     
     print(f"exported {database} ")
     print('uploading to drive')
-    upload(database, 'sql')
-    delete(database)
+    filepath = f'{database}.sql'
+    upload(filepath, filepath)
+    delete(filepath)
         
 conn = mysql.connector.connect (user='boz', password='Ewhblt69!@#',
                                host='agenciaboz.com.br',buffered=True)
