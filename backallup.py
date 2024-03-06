@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 import cyberpanel_backup
+import backdb
 
 def main():
     # Execute the cyberpanel command and capture its output
@@ -22,6 +23,8 @@ def main():
                     cyberpanel_backup.newBackup(domain)
                 except Exception as e:
                     print(f"error uploading {domain}: {e}")
+
+        backdb.main()
                 
     except json.JSONDecodeError as e:
         print(f"Error parsing JSON: {e}")

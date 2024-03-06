@@ -19,15 +19,19 @@ def newBackup(database):
     filepath = f'{database}.sql'
     upload(filepath, filepath)
     delete(filepath)
-        
-conn = mysql.connector.connect (user='boz', password='Ewhblt69!@#',
-                               host='agenciaboz.com.br',buffered=True)
-cursor = conn.cursor()
-databases = ("show databases")
-cursor.execute(databases)
-for (databases) in cursor:
-    print(databases[0])
-    newBackup(databases[0])
+
+def main():
+    conn = mysql.connector.connect (user='boz', password='Ewhblt69!@#',
+                                host='agenciaboz.com.br',buffered=True)
+    cursor = conn.cursor()
+    databases = ("show databases")
+    cursor.execute(databases)
+    for (databases) in cursor:
+        print(databases[0])
+        newBackup(databases[0])
+
+if __name__ == "__main__":
+    main()
 
         
     
