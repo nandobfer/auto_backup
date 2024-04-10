@@ -15,15 +15,15 @@ def newBackup(database):
     print()
     (out, err) = proc.communicate()
 
-    if out:
+    if err:
+        print('error exporting database:')
+        print(err)
+    else:
         print(f"exported {database} ")
         print('uploading to drive')
         upload(filepath, f'{database}.sql')
         delete(filepath)
     
-    if err:
-        print('error exporting database:')
-        print(err)
 
 def main():
     conn = mysql.connector.connect (user='boz', password='Ewhblt69!@#',
